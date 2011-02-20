@@ -1,0 +1,20 @@
+{% extends 'struct.html' %}
+{% block title %}Index{% endblock title %}
+{% block header-title %}
+    Index
+{% endblock header-title %}
+{% block body %}
+    {% for project in object_list %}
+        <div class="">
+            <h1>{{ project.title }}</h1>
+            <p><a href='{% url read-project project.id %}'>See details</a></p>
+            <div>{{ project.description|truncatewords:20 }}</div>
+            {% for task in project.task_set.all %}
+                <div class="{% if task.is_finished %}finished{% else %}not-finished{% endif %}">
+                <h2>{{ task.title }}</h2>
+                    <div>{{ task.description }}</div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+{% endblock body %}
