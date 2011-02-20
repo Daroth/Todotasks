@@ -3,18 +3,26 @@
 {% block header-title %}
     Index
 {% endblock header-title %}
+{% block head-js %}
+    {{ block.super }}
+    <script type="text/javascript" src="/js/tasks/project_list.js"></script>
+{% endblock head-js %}
 {% block body %}
-    {% for project in object_list %}
-        <div class="">
-            <h1>{{ project.title }}</h1>
-            <p><a href='{% url read-project project.id %}'>See details</a></p>
-            <div>{{ project.description|truncatewords:20 }}</div>
-            {% for task in project.task_set.all %}
-                <div class="{% if task.is_finished %}finished{% else %}not-finished{% endif %}">
-                <h2>{{ task.title }}</h2>
-                    <div>{{ task.description }}</div>
-                </div>
-            {% endfor %}
-        </div>
-    {% endfor %}
+    <div id="accordion" class="ui-accordion ui-widget ui-helper-reset">
+        {% for project in object_list %}
+            <h3 class="ui-accordion-header ui-helper-reset ui-state-active ui-corner-top">
+                <a href="#">{{ project.title }}</a>
+            </h3>
+            <div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom ui-accordion-content-active">
+                <p><a href='{% url read-project project.id %}'>See details</a></p>
+                <div>{{ project.description|truncatewords:20 }}</div>
+                {% for task in project.task_set.all %}
+                    <div class="{% if task.is_finished %}finished{% else %}not-finished{% endif %} task">
+                        <h2>{{ task.title }}</h2>
+                        <div>{{ task.description }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
 {% endblock body %}

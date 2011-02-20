@@ -1,7 +1,19 @@
+#header {
+    font-size: 36px;
+}
+
+#footer {
+    text-align: center;
+}
+
+.task {
+    padding: 5px;
+}
+
 .finished {
-    background-color: #0F0;
+    background-color: #b9ffb9;
 }
 
 .not-finished {
-    background-color: #F00;
+    background-color: #ffb9b9;
 }

@@ -10,8 +10,13 @@
         <!--[if lt IE 8]>
             <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection" />
         <![endif]-->
+        <link type="text/css" href="/css/start/jquery-ui-1.8.9.custom.css" rel="Stylesheet" />
+
     {% endblock head-css %}
-    {% block head-js %}{% endblock head-js %}
+    {% block head-js %}
+        <script type="text/javascript" src="/js/jquery-1.4.4.min.js"></script>
+        <script type="text/javascript" src="/js/jquery-ui-1.8.9.custom.min.js"></script>
+    {% endblock head-js %}
     {% block head-rss %}{% endblock head-rss %}
 </head>
 <body>
@@ -20,7 +25,8 @@
         {% block header-title %}{% endblock header-title %}
     </div>
     {% include 'menu.html' %}
-    <div id="body" class="span-16">{% block body %}{% endblock body %}</div>
+    <div id="body" class="span-16 last">{% block body %}{% endblock body %}</div>
+    <div id="footer" class="span-24 last">some footer informations of your choice.</div>
 </div>
 </body>
 </html>
