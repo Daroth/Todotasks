@@ -1,0 +1,13 @@
+{% extends 'struct.html' %}
+{% block title %}Login{% endblock title %}
+{% block header-title %}
+    Login
+{% endblock header-title %}
+{% block body %}
+    <form action="{% url django.contrib.auth.views.login %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="hidden" name="next" value="{% if next %}{{ next }}{% else %}/{% endif %}" />
+        <input type="submit" />
+    </form>
+{% endblock body %}

@@ -1,0 +1,16 @@
+{% extends 'struct.html' %}
+{% block title %}Remove task{% endblock title %}
+{% block header-title %}
+    Remove Task
+{% endblock header-title %}
+{% block body %}
+    <h1>{{ object.title }}</h1>
+    <div>
+        {{ object.description }}
+    </div>
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>Do you really want to remove it ?</p>
+        <input type="submit" value="Yes!"/>
+    </form>
+{% endblock body %}

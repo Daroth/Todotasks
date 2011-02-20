@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" >
+<head>
+    <title>{% block head-title %}{% endblock head-title %}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    {% block head-css %}
+        <link rel="stylesheet" media="screen" type="text/css" title="Design" href="/css/design.css" />
+        <link rel="stylesheet" href="/css/blueprint/screen.css" type="text/css" media="screen, projection" />
+        <link rel="stylesheet" href="/css/blueprint/print.css" type="text/css" media="print" />
+        <!--[if lt IE 8]>
+            <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection" />
+        <![endif]-->
+    {% endblock head-css %}
+    {% block head-js %}{% endblock head-js %}
+    {% block head-rss %}{% endblock head-rss %}
+</head>
+<body>
+<div class="container">
+    <div id="header" class="span-24 last">
+        {% block header-title %}{% endblock header-title %}
+    </div>
+    {% include 'menu.html' %}
+    <div id="body" class="span-16">{% block body %}{% endblock body %}</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{% extends 'struct.html' %}
+{% block title %}Task detail{% endblock title %}
+{% block header-title %}
+    Task-detail
+{% endblock header-title %}
+{% block body %}
+    <h1>{{ object.title }}</h1>
+    <div>
+    {{ object.description }}
+    </div>
+    <div>Actions : <a href='{% url delete-task object.id %}'>remove it.</a><br />
+    <a href='{% url apps.tasks.views.mark_as_done object.id %}'>mark it a done!</a></div>
+{% endblock body %}

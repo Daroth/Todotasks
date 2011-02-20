@@ -1,0 +1,12 @@
+{% extends 'struct.html' %}
+{% block title %}Create a task{% endblock title %}
+{% block header-title %}
+    Create a task
+{% endblock header-title %}
+{% block body %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" />
+    </form>
+{% endblock body %}

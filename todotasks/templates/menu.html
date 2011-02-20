@@ -1,0 +1,9 @@
+<div id="menu" class="span-4">
+    <a href="{% url list-tasks %}">View tasks.</a><br />
+    {% if not user.is_authenticated %}
+        <a href="{% url log-in %}?next={{ request.path }}">Log in.</a><br />
+    {% else %}
+        <a href="{% url create-task %}">Create a task.</a><br />
+        <a href="{% url log-out %}?next_page=/">Log out.</a>
+    {% endif %}
+</div>
