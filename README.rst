@@ -16,6 +16,7 @@ Todo list :
 -----------
 Here is the public todolist of the project. Ironicaly if don't eat my own dog food yet because
 I haven't any good cheap python hosting available.
+
 - Upgrade user interface
 - Upgrade user management
 - Easy installation script
