@@ -14,7 +14,7 @@
                 <a href="#">{{ project.title }}</a>
             </h3>
             <div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom ui-accordion-content-active">
-                <p><a href='{% url read-project project.id %}'>See details</a></p>
+                <p><a href='{% url read-project slug=project.title_slug %}'>See details</a></p>
                 <div>{{ project.description|truncatewords:20 }}</div>
                 {% for task in project.task_set.all %}
                     <div class="{% if task.is_finished %}finished{% else %}not-finished{% endif %} task">

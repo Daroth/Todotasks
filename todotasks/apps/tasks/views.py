@@ -15,7 +15,7 @@ def create_tasks(request):
             task = form.save(commit=False)
             task.created_by = request.user
             task.save()
-            return HttpResponseRedirect(reverse('read-project', args=(task.project.id,)))
+            return HttpResponseRedirect(reverse('read-project', args=(task.project.title_slug,)))
     else:
         form = TaskForm()
     params = {'form':form, 'user': request.user }
@@ -28,4 +28,4 @@ def mark_as_done(request, object_id):
     if not task.is_finished:
         task.is_finished = True
         task.save()
-    return HttpResponseRedirect(reverse('read-project', args=(task.project.id,)))
+    return HttpResponseRedirect(reverse('read-project', args=(task.project.title_slug,)))

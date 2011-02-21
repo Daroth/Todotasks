@@ -33,4 +33,4 @@ class Task(TimeStampedModel):
 
     @models.permalink
     def get_absolute_url(self):
-        return ('read-task', (), {'object_id':self.id,})
+        return ('read-task', (), {'slug':self.title_slug,})

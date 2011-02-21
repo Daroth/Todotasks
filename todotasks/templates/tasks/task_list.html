@@ -8,7 +8,7 @@
         <div class="{% if task.is_finished %}finished{% else %}not-finished{% endif %}">
             <h1>{{ task.title }}</h1>
             <div>{{ task.description|truncatewords:20 }}</div>
-            <p><a href="{% url read-task task.id %}">see more...</a></p>
+            <p><a href="{% url read-task task.title_slug %}">see more...</a></p>
         </div>
     {% endfor %}
 {% endblock body %}

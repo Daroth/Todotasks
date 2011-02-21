@@ -8,11 +8,11 @@ urlpatterns = patterns('',
 
     url(r'^create/$', 'apps.tasks.views.create_tasks', {}, name='create-task'),
 
-    url(r'^project/(?P<object_id>\d+)$', 'django.views.generic.list_detail.object_detail',
-       {'queryset':Project.objects.all(),},name='read-project'),
+    url(r'^project/(?P<slug>[a-z\-0-9]+)$', 'django.views.generic.list_detail.object_detail',
+       {'queryset':Project.objects.all(), 'slug_field':'title_slug',},name='read-project'),
 
-    url(r'^task/(?P<object_id>\d+)$', 'django.views.generic.list_detail.object_detail',
-       {'queryset':Task.objects.all(),},name='read-task'),
+    url(r'^task/(?P<slug>[a-z\-0-9]+)$', 'django.views.generic.list_detail.object_detail',
+       {'queryset':Task.objects.all(), 'slug_field':'title_slug',},name='read-task'),
 
     url(r'^task/delete/(?P<object_id>\d+)$', 'django.views.generic.create_update.delete_object',
        {'model':Task,'post_delete_redirect':'/', 'login_required':True}, name='delete-task'),
